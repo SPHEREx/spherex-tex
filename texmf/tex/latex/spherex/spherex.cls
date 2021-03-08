@@ -70,6 +70,10 @@
 
 %% Document metadata commands
 
+% Reset this to be empty by default to work better with conditional
+% rendering in \maketitle
+\renewcommand{\@author}{}
+
 %% \title and \shortTitle
 %% \title sets both the title and subtitle to be the same by default.
 %% Set \shortTitle to override and set the subtitle specifically.
@@ -178,6 +182,13 @@
             \vskip 0.125in
         }{}
     \end{center}
+
+    \ifdefempty{\@author}{}{
+      \iftoggle{SpherexSpherexLead}{
+        \iftoggle{SpherexIpacLead}{{\noindent\bf Other Authors:}\\ }{}
+      }{{\noindent\bf Authors:}\\}
+      \@author\\
+    }
 
     \vskip 0.25in
 
