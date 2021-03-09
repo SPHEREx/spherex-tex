@@ -164,6 +164,12 @@
     \newcommand{\@approvaldate}{#1}
 }
 
+%% \ssdcHandle
+\newcommand{\@ssdcHandle}{SSDC-Unidentified}
+\newcommand{\ssdcHandle}[1]{
+  \renewcommand{\@ssdcHandle}{#1}
+}
+
 %% Headers
 \pagestyle{fancy}
 \fancyhf{}
@@ -172,7 +178,7 @@
 \headwidth = 6.5in
 \lhead{\includegraphics[height=0.5in]{SPHEREx_logo.png}}
 \chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
-\rhead{Version \@version, \@docDate}
+\rhead{\@ssdcHandle \vspace{10pt}\\Version \@version, \@docDate}
 \footskip = 8.4pt
 \cfoot{Page \thepage\ of \pageref{LastPage}}
 
@@ -182,6 +188,8 @@
 %% Title
 \renewcommand{\maketitle}{
     \begin{center}
+        {\LARGE\@ssdcHandle}
+        \vskip 0.25in
         {\Huge\bf\@title}
         \vskip 0.25in
         \iftoggle{SpherexVersion}{
