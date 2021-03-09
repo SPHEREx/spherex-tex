@@ -130,16 +130,27 @@
 
 %% \ipaclead (sets @ipacleadname and SpherexIpacLead toggle)
 \newtoggle{SpherexIpacLead}
-\newcommand{\ipaclead}[1]{
+\newcommand{\@ipacleademail}{}
+\pgfkeys{
+  /ipaclead/.is family, /ipaclead,
+  email/.estore in = \@ipacleademail
+}
+\newcommand{\ipaclead}[2][]{
+    \pgfkeys{/ipaclead, #1}%
     \toggletrue{SpherexIpacLead}
-    \newcommand{\@ipacleadname}{#1}
+    \newcommand{\@ipacleadname}{#2}
 }
 
 %% \spherexlead (sets @spherexleadname and SpherexSpherexLead toggle)
 \newtoggle{SpherexSpherexLead}
-\newcommand{\spherexlead}[1]{
+\newcommand{\@spherexleademail}{}
+\pgfkeys{
+  /spherexlead/.is family, /spherexlead,
+  email/.estore in = \@spherexleademail
+}
+\newcommand{\spherexlead}[2][]{
     \toggletrue{SpherexSpherexLead}
-    \newcommand{\@spherexleadname}{#1}
+    \newcommand{\@spherexleadname}{#2}
 }
 
 %% \approved (sets @approvername, @approvaldate and SpherexApproved toggle)
