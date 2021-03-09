@@ -149,6 +149,7 @@
   email/.estore in = \@spherexleademail
 }
 \newcommand{\spherexlead}[2][]{
+    \pgfkeys{/spherexlead, #1}%
     \toggletrue{SpherexSpherexLead}
     \newcommand{\@spherexleadname}{#2}
 }
@@ -198,11 +199,11 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
-            {\noindent\bf \ipac\ Lead: \@ipacleadname }
+            {\noindent\bf \ipac\ Lead: \@ipacleadname\ifdefempty{\@ipacleademail}{}{~\href{mailto:\@ipacleademail}{\@ipacleademail}} }
             \vskip 0.125in
         }{}
         \iftoggle{SpherexSpherexLead}{
-            {\noindent\bf \spherex\ Lead: \@spherexleadname }
+            {\noindent\bf \spherex\ Lead: \@spherexleadname\ifdefempty{\@spherexleademail}{}{~\href{mailto:\@spherexleademail}{\@spherexleademail}} }
             \vskip 0.125in
         }{}
     \end{center}
