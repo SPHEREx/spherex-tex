@@ -8,6 +8,7 @@
 
 %% General Packages
 \RequirePackage{etoolbox}
+\RequirePackage{pgfkeys}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage{graphicx}
@@ -73,6 +74,18 @@
 % Reset this to be empty by default to work better with conditional
 % rendering in \maketitle
 \renewcommand{\@author}{}
+
+% Structured person info
+\pgfkeys{
+  /person/.is family, /person,
+  email/.estore in = \personEmail,
+}
+\newcommand{\personEmail}{}
+\newcommand{\person}[2][]{
+  \pgfkeys{/person, #1}%
+  #2 \ifdefempty{\personEmail}{}{\href{mailto:\personEmail}{\personEmail}}%
+  \renewcommand{\personEmail}{}
+}
 
 %% \title and \shortTitle
 %% \title sets both the title and subtitle to be the same by default.
