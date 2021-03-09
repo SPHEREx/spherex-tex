@@ -111,6 +111,8 @@
 \newcommand{\modulename}[1]{
     \toggletrue{SpherexModuleName}
     \newcommand{\@modulename}{#1}
+    \title{#1}
+    \shortTitle{#1}
 }
 
 %% \pipelevel (sets \@setpipelevel and SpherexPipeLevel toggle)
@@ -169,11 +171,7 @@
 \topmargin = -0.5in
 \headwidth = 6.5in
 \lhead{\includegraphics[height=0.5in]{SPHEREx_logo.png}}
-\ifdefstring{\@docCategoryCode}{MS}{
-    \chead{\large\ Pipeline Module Description \vspace{10pt}\\\@modulename}
-}{
-    \chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
-}
+\chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
 \rhead{Version \@version, \@docDate}
 \footskip = 8.4pt
 \cfoot{Page \thepage\ of \pageref{LastPage}}
@@ -184,11 +182,7 @@
 %% Title
 \renewcommand{\maketitle}{
     \begin{center}
-        \ifdefstring{\@docCategoryCode}{MS}{
-            {\Huge\bf\@modulename}
-        }{
-            {\Huge\bf\@title}
-        }
+        {\Huge\bf\@title}
         \vskip 0.25in
         \iftoggle{SpherexVersion}{
             {\LARGE\bf Version: \@version}
