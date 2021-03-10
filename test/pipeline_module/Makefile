@@ -10,7 +10,7 @@ endif
 export TEXMFHOME = ../../texmf
 
 ssdc-ms-000.pdf: $(DOCNAME).tex meta.tex
-	latexmk -xelatex -interaction=nonstopmode $(DOCNAME).tex
+	latexmk -xelatex -bibtex -interaction=nonstopmode $(DOCNAME).tex
 
 .PHONY: clean
 clean:

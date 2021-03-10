@@ -1,7 +1,22 @@
 % ls-R -- filename database for kpathsea; do not change this line.
 ./:
+.DS_Store
+bibtex
 ls-R
 tex
+
+./bibtex:
+.DS_Store
+bib
+bst
+
+./bibtex/bib:
+.DS_Store
+spherex.bib
+
+./bibtex/bst:
+.DS_Store
+aasjournal.bst
 
 
 ./tex:
