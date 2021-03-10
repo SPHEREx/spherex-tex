@@ -122,6 +122,13 @@
     \newcommand{\@pipelevel}{#1}
 }
 
+%% \diagramIndex (sets \@diagramindex and SpherexDiagramIndex toggle)
+\newtoggle{SpherexDiagramIndex}
+\newcommand{\diagramindex}[1]{
+  \toggletrue{SpherexDiagramIndex}
+  \newcommand{\@diagramindex}{#1}
+}
+
 %% \version (sets @version and SpherexVersion toggle)
 \newtoggle{SpherexVersion}
 \newcommand{\@version}{Not Set}
@@ -197,7 +204,7 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexPipeLevel}{
-            {\LARGE\noindent\bf Pipeline Level: \@pipelevel}
+            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{}}
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
