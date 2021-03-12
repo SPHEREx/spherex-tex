@@ -1,0 +1,2 @@
+# Dependencies for the Docker container's Python virtual environment
+pyyaml
