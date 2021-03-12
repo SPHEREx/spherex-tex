@@ -7,7 +7,7 @@ ifneq "$(GITSTATUS)" ""
 	GITDIRTY = -dirty
 endif
 
-export TEXMFHOME = ../../texmf
+export TEXMFHOME ?= ../../texmf
 
 ssdc-tn-000.pdf: $(DOCNAME).tex meta.tex
 	latexmk -xelatex -bibtex -interaction=nonstopmode $(DOCNAME).tex
