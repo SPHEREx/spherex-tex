@@ -38,3 +38,24 @@ jobs:
         working-directory: ./
         run: |
           docker run --rm -v `pwd`:/workspace -w /workspace localhost:5000/${{ github.repository_owner }}/spherex-tex:latest sh -c 'cd test && ./test.sh'
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: pipeline_module-ssdc-ms-000.pdf
+          path: test/pipeline_module/ssdc-ms-000.pdf
+          retention-days: 7
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: pipeline_module_unapproved-ssdc-ms-000.pdf
+          path: test/pipeline_module_unapproved/ssdc-ms-000.pdf
+          retention-days: 7
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: technote-ssdc-tn-000.pdf
+          path: test/technote/ssdc-tn-000.pdf
+          retention-days: 7
+          if-no-files-found: error
