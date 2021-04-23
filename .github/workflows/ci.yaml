@@ -32,12 +32,12 @@ jobs:
           context: ./  # use currently-checked out files
           file: ./Dockerfile
           push: true
-          tags: localhost:5000/${{ github.repository_owner }}/spherex-tex:latest
+          tags: localhost:5000/spherex/spherex-tex:latest
 
       - name: Run tests
         working-directory: ./
         run: |
-          docker run --rm -v `pwd`:/workspace -w /workspace localhost:5000/${{ github.repository_owner }}/spherex-tex:latest sh -c 'cd test && ./test.sh'
+          docker run --rm -v `pwd`:/workspace -w /workspace localhost:5000/spherex/spherex-tex:latest sh -c 'cd test && ./test.sh'
 
       - uses: actions/upload-artifact@v2
         with:
