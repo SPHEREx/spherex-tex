@@ -1,0 +1,10 @@
+# Reduce the Docker image size by excluding documentation from the apt-get
+# installations.
+# See lsst-texmf.lsst.io/docker.htm://wiki.ubuntu.com/ReducingDiskFootprint#Documentation
+
+path-exclude /usr/share/doc/*
+# we need to keep copyright files for legal reasons
+path-include /usr/share/doc/*/copyright
+path-exclude /usr/share/man/*
+path-exclude /usr/share/groff/*
+path-exclude /usr/share/info/*
