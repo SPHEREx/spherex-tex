@@ -2,6 +2,14 @@
 
 **SPHEREx TeX document resources and Docker environment.**
 
+## Docker
+
+To compile a document using the Docker image and the default SPHEREx Makefiles:
+
+```sh
+docker run -v `pwd`:/workspace -w /workspace ghcr.io/spherex/spherex-tex:latest sh -c 'make'
+```
+
 ## spherex class reference
 
 `spherex-tex` provides a custom class, named `spherex`, for formatting TeX documents. This section describes the commands and options that are provided by the `spherex` class.
