@@ -129,6 +129,13 @@
   \newcommand{\@diagramindex}{#1}
 }
 
+%% \difficulty (sets \@difficulty and SpherexDifficulty toggle)
+\newtoggle{SpherexDifficulty}
+\newcommand{\difficulty}[1]{
+  \toggletrue{SpherexDifficulty}
+  \newcommand{\@difficulty}{#1}
+}
+
 %% \version (sets @version and SpherexVersion toggle)
 \newtoggle{SpherexVersion}
 \newcommand{\@version}{Not Set}
@@ -204,7 +211,7 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexPipeLevel}{
-            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{}}
+            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{} \iftoggle{SpherexDifficulty}{\hspace{0.5in}Difficulty: \@difficulty}{}}
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
