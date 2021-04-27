@@ -44,12 +44,12 @@ Each SPHEREx document category has a corresponding option:
 
 `spherex` provides several commands that you can use in the preamble (before `\begin{document}`) to set metadata that appears in the document's title and header/footer.
 
-#### \ssdcHandle
+#### \spherexHandle
 
 The document's handle. For example:
 
 ```tex
-\ssdcHandle{SSDC-MS-000}
+\spherexHandle{SSDC-MS-000}
 ```
 
 #### \version

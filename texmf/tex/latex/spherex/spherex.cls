@@ -171,10 +171,10 @@
     \newcommand{\@approvaldate}{#1}
 }
 
-%% \ssdcHandle
-\newcommand{\@ssdcHandle}{SSDC-Unidentified}
-\newcommand{\ssdcHandle}[1]{
-  \renewcommand{\@ssdcHandle}{#1}
+%% \spherexHandle
+\newcommand{\@spherexHandle}{}
+\newcommand{\spherexHandle}[1]{
+  \renewcommand{\@spherexHandle}{#1}
 }
 
 %% Headers
@@ -185,7 +185,7 @@
 \headwidth = 6.5in
 \lhead{\includegraphics[height=0.5in]{SPHEREx_logo.png}}
 \chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
-\rhead{\@ssdcHandle \vspace{10pt}\\Version \@version, \@docDate}
+\rhead{\@spherexHandle \vspace{10pt}\\Version \@version, \@docDate}
 \footskip = 8.4pt
 \cfoot{Page \thepage\ of \pageref{LastPage}}
 
@@ -195,7 +195,7 @@
 %% Title
 \renewcommand{\maketitle}{
     \begin{center}
-        {\LARGE\@ssdcHandle}
+        {\LARGE\@spherexHandle}
         \vskip 0.25in
         {\Huge\bf\@title}
         \vskip 0.25in
