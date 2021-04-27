@@ -1,7 +1,7 @@
 %% SPHEREx document class
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spherex}[2021/03/05 SPHEREx document class]
+\ProvidesClass{spherex}[2021/04/26 SPHEREx document class]
 
 %% Base class
 \LoadClass[11pt,letterpaper]{article}
