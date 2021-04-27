@@ -41,21 +41,21 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: pipeline_module-ssdc-ms-000.pdf
-          path: test/pipeline_module/ssdc-ms-000.pdf
+          name: SSDC-MS-000.pdf
+          path: test/pipeline_module/SSDC-MS-000.pdf
           retention-days: 7
           if-no-files-found: error
 
       - uses: actions/upload-artifact@v2
         with:
-          name: pipeline_module_unapproved-ssdc-ms-000.pdf
-          path: test/pipeline_module_unapproved/ssdc-ms-000.pdf
+          name: SSDC-MS-000.unapproved.pdf
+          path: test/pipeline_module_unapproved/SSDC-MS-000.pdf
           retention-days: 7
           if-no-files-found: error
 
       - uses: actions/upload-artifact@v2
         with:
-          name: technote-ssdc-tn-000.pdf
-          path: test/technote/ssdc-tn-000.pdf
+          name: SSDC-TN-000.pdf
+          path: test/technote/SSDC-TN-000.pdf
           retention-days: 7
           if-no-files-found: error
