@@ -1,4 +1,4 @@
-DOCNAME = ssdc-tn-000
+DOCNAME = SSDC-TN-000
 
 GITVERSION := $(shell git log -1 --date=short --pretty=%h)
 GITDATE := $(shell git log -1 --date=short --pretty=%ad)
@@ -9,7 +9,7 @@ endif
 
 export TEXMFHOME ?= ../../texmf
 
-ssdc-tn-000.pdf: $(DOCNAME).tex meta.tex
+$(DOCNAME).pdf: $(DOCNAME).tex meta.tex
 	latexmk -xelatex -bibtex -interaction=nonstopmode $(DOCNAME).tex
 
 .PHONY: clean

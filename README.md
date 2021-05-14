@@ -2,6 +2,14 @@
 
 **SPHEREx TeX document resources and Docker environment.**
 
+## Docker
+
+To compile a document using the Docker image and the default SPHEREx Makefiles:
+
+```sh
+docker run -v `pwd`:/workspace -w /workspace ghcr.io/spherex/spherex-tex:latest sh -c 'make'
+```
+
 ## spherex class reference
 
 `spherex-tex` provides a custom class, named `spherex`, for formatting TeX documents. This section describes the commands and options that are provided by the `spherex` class.
@@ -36,12 +44,12 @@ Each SPHEREx document category has a corresponding option:
 
 `spherex` provides several commands that you can use in the preamble (before `\begin{document}`) to set metadata that appears in the document's title and header/footer.
 
-#### \ssdcHandle
+#### \spherexHandle
 
 The document's handle. For example:
 
 ```tex
-\ssdcHandle{SSDC-MS-000}
+\spherexHandle{SSDC-MS-000}
 ```
 
 #### \version
@@ -136,6 +144,17 @@ For module specification (`MS`) documents, this command sets the diagram index:
 
 ```tex
 \diagramindex{13}
+```
+
+#### \difficulty
+
+For module specification (`MS`) documents, this command sets the "difficulty" metadata:
+
+```tex
+\difficulty{Low}
+\difficulty{Medium}
+\difficulty{High}
+\difficulty{Unassigned}
 ```
 
 ### Title page

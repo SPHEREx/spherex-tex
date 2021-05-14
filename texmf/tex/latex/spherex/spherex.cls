@@ -1,7 +1,7 @@
 %% SPHEREx document class
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spherex}[2021/03/05 SPHEREx document class]
+\ProvidesClass{spherex}[2021/04/26 SPHEREx document class]
 
 %% Base class
 \LoadClass[11pt,letterpaper]{article}
@@ -129,6 +129,13 @@
   \newcommand{\@diagramindex}{#1}
 }
 
+%% \difficulty (sets \@difficulty and SpherexDifficulty toggle)
+\newtoggle{SpherexDifficulty}
+\newcommand{\difficulty}[1]{
+  \toggletrue{SpherexDifficulty}
+  \newcommand{\@difficulty}{#1}
+}
+
 %% \version (sets @version and SpherexVersion toggle)
 \newtoggle{SpherexVersion}
 \newcommand{\@version}{Not Set}
@@ -171,10 +178,10 @@
     \newcommand{\@approvaldate}{#1}
 }
 
-%% \ssdcHandle
-\newcommand{\@ssdcHandle}{SSDC-Unidentified}
-\newcommand{\ssdcHandle}[1]{
-  \renewcommand{\@ssdcHandle}{#1}
+%% \spherexHandle
+\newcommand{\@spherexHandle}{}
+\newcommand{\spherexHandle}[1]{
+  \renewcommand{\@spherexHandle}{#1}
 }
 
 %% Headers
@@ -185,7 +192,7 @@
 \headwidth = 6.5in
 \lhead{\includegraphics[height=0.5in]{SPHEREx_logo.png}}
 \chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
-\rhead{\@ssdcHandle \vspace{10pt}\\Version \@version, \@docDate}
+\rhead{\@spherexHandle \vspace{10pt}\\Version \@version, \@docDate}
 \footskip = 8.4pt
 \cfoot{Page \thepage\ of \pageref{LastPage}}
 
@@ -195,7 +202,7 @@
 %% Title
 \renewcommand{\maketitle}{
     \begin{center}
-        {\LARGE\@ssdcHandle}
+        {\LARGE\@spherexHandle}
         \vskip 0.25in
         {\Huge\bf\@title}
         \vskip 0.25in
@@ -204,7 +211,7 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexPipeLevel}{
-            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{}}
+            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{} \iftoggle{SpherexDifficulty}{\hspace{0.5in}Difficulty: \@difficulty}{}}
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
