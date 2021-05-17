@@ -228,3 +228,11 @@ When adding or removing files from the [texmf](./texmf) directory, also update t
 ```sh
 mktexlsr --verbose texmf
 ```
+
+The [test](./test) directory contains sample documents that are configured to compile using the locally-cloned texmf directory.
+You can compile all test documents:
+
+```sh
+cd test
+./test.sh
+```
