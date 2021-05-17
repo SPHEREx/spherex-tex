@@ -217,7 +217,8 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexPipeLevel}{
-            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{} \iftoggle{SpherexDifficulty}{\hspace{0.5in}Difficulty: \@difficulty}{}}
+            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{}}
+            {\LARGE\noindent\bf \iftoggle{SpherexDifficulty}{\vskip 0.25in Difficulty: \@difficulty}{}}
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
