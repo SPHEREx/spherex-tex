@@ -111,6 +111,7 @@
 \newcommand{\modulename}[1]{
     \toggletrue{SpherexModuleName}
     \newcommand{\@modulename}{#1}
+    \renewcommand{\themodulename}{#1}
     \title{#1}
     \shortTitle{#1}
 }
@@ -120,6 +121,7 @@
 \newcommand{\pipelevel}[1]{
     \toggletrue{SpherexPipeLevel}
     \newcommand{\@pipelevel}{#1}
+    \renewcommand{\thepipelevel}{#1}
 }
 
 %% \diagramIndex (sets \@diagramindex and SpherexDiagramIndex toggle)
@@ -127,6 +129,7 @@
 \newcommand{\diagramindex}[1]{
   \toggletrue{SpherexDiagramIndex}
   \newcommand{\@diagramindex}{#1}
+  \renewcommand{\thediagramindex}{#1}
 }
 
 %% \difficulty (sets \@difficulty and SpherexDifficulty toggle)
@@ -134,6 +137,7 @@
 \newcommand{\difficulty}[1]{
   \toggletrue{SpherexDifficulty}
   \newcommand{\@difficulty}{#1}
+  \renewcommand{\thedifficulty}{#1}
 }
 
 %% \version (sets @version and SpherexVersion toggle)
@@ -142,6 +146,7 @@
 \newcommand{\version}[1]{
     \toggletrue{SpherexVersion}
     \renewcommand{\@version}{#1}
+    \renewcommand{\theversion}{#1}
 }
 
 %% \ipaclead (sets @ipacleadname and SpherexIpacLead toggle)
@@ -182,6 +187,7 @@
 \newcommand{\@spherexHandle}{}
 \newcommand{\spherexHandle}[1]{
   \renewcommand{\@spherexHandle}{#1}
+  \renewcommand{\thehandle}{#1}
 }
 
 %% Headers
@@ -248,8 +254,16 @@
 \bibliographystyle{aasjournal}
 
 %% Macros
+
+%% Metadata access macros
 \newcommand{\spherex}{SPHEREx}
 \newcommand{\ipac}{IPAC}
+\newcommand{\thediagramindex}{undefined}
+\newcommand{\thedifficulty}{undefined}
+\newcommand{\thehandle}{undefined}
+\newcommand{\themodulename}{undefined}
+\newcommand{\thepipelevel}{undefined}
+\newcommand{\theversion}{undefined}
 
 %% Journal macros (adapted from aastex)
 \let\jnl@style=\rmfamily 
