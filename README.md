@@ -2,7 +2,17 @@
 
 **SPHEREx TeX document resources and Docker environment.**
 
-## Docker
+Contents:
+
+- [How to compile a document with Docker](#how-to-compile-a-document-with-docker)
+- [spherex class reference](#spherex-class-reference)
+   - [spherex document class and options](#spherex-documentclass-and-options)
+   - [Preamble commands](#preamble-commands)
+   - [Title page](#title-page)
+   - [Macros](#macros)
+- [BibTeX bibliography](#bibtex-bibliography)
+
+## How to compile a document with Docker
 
 To compile a document using the Docker image and the default SPHEREx Makefiles:
 
@@ -10,11 +20,13 @@ To compile a document using the Docker image and the default SPHEREx Makefiles:
 docker run -v `pwd`:/workspace -w /workspace ghcr.io/spherex/spherex-tex:latest sh -c 'make'
 ```
 
+[Learn more about Docker and how to install it.](https://www.docker.com/products/docker-desktop)
+
 ## spherex class reference
 
 `spherex-tex` provides a custom class, named `spherex`, for formatting TeX documents. This section describes the commands and options that are provided by the `spherex` class.
 
-### spherex documentclass and options
+### spherex document class and options
 
 Use the `spherex` class through the `\documentclass` command:
 
