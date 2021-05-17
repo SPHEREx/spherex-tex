@@ -1,10 +1,10 @@
 %% SPHEREx document class
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spherex}[2021/04/26 SPHEREx document class]
+\ProvidesClass{spherex}[2021/05/17 SPHEREx document class]
 
 %% Base class
-\LoadClass[11pt,letterpaper]{article}
+\LoadClass[10pt,letterpaper]{article}
 
 %% General Packages
 \RequirePackage{etoolbox}
