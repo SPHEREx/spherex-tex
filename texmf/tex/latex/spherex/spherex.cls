@@ -196,7 +196,7 @@
 \headheight = 0.6in
 \topmargin = -0.5in
 \headwidth = 6.5in
-\lhead{\includegraphics[height=0.5in]{SPHEREx_logo.png}}
+\lhead{\includegraphics[height=0.5in]{logo.pdf}}
 \chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
 \rhead{\@spherexHandle \vspace{10pt}\\Version \@version, \@docDate}
 \footskip = 8.4pt

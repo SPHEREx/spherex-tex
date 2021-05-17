@@ -220,3 +220,11 @@ spherex-tex includes a centrally maintained BibTeX file for the SPHEREx project:
 ```tex
 \bibliography{spherex}
 ```
+
+## Developer guide
+
+When adding or removing files from the [texmf](./texmf) directory, also update the [texmf/ls-R](./texmf/ls-R) file:
+
+```sh
+mktexlsr --verbose texmf
+```
