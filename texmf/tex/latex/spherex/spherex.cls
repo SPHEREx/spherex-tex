@@ -1,10 +1,10 @@
 %% SPHEREx document class
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spherex}[2021/04/26 SPHEREx document class]
+\ProvidesClass{spherex}[2021/05/17 SPHEREx document class]
 
 %% Base class
-\LoadClass[11pt,letterpaper]{article}
+\LoadClass[10pt,letterpaper]{article}
 
 %% General Packages
 \RequirePackage{etoolbox}
@@ -111,6 +111,7 @@
 \newcommand{\modulename}[1]{
     \toggletrue{SpherexModuleName}
     \newcommand{\@modulename}{#1}
+    \renewcommand{\themodulename}{#1}
     \title{#1}
     \shortTitle{#1}
 }
@@ -120,6 +121,7 @@
 \newcommand{\pipelevel}[1]{
     \toggletrue{SpherexPipeLevel}
     \newcommand{\@pipelevel}{#1}
+    \renewcommand{\thepipelevel}{#1}
 }
 
 %% \diagramIndex (sets \@diagramindex and SpherexDiagramIndex toggle)
@@ -127,6 +129,7 @@
 \newcommand{\diagramindex}[1]{
   \toggletrue{SpherexDiagramIndex}
   \newcommand{\@diagramindex}{#1}
+  \renewcommand{\thediagramindex}{#1}
 }
 
 %% \difficulty (sets \@difficulty and SpherexDifficulty toggle)
@@ -134,6 +137,7 @@
 \newcommand{\difficulty}[1]{
   \toggletrue{SpherexDifficulty}
   \newcommand{\@difficulty}{#1}
+  \renewcommand{\thedifficulty}{#1}
 }
 
 %% \version (sets @version and SpherexVersion toggle)
@@ -142,6 +146,7 @@
 \newcommand{\version}[1]{
     \toggletrue{SpherexVersion}
     \renewcommand{\@version}{#1}
+    \renewcommand{\theversion}{#1}
 }
 
 %% \ipaclead (sets @ipacleadname and SpherexIpacLead toggle)
@@ -182,6 +187,7 @@
 \newcommand{\@spherexHandle}{}
 \newcommand{\spherexHandle}[1]{
   \renewcommand{\@spherexHandle}{#1}
+  \renewcommand{\thehandle}{#1}
 }
 
 %% Headers
@@ -190,7 +196,7 @@
 \headheight = 0.6in
 \topmargin = -0.5in
 \headwidth = 6.5in
-\lhead{\includegraphics[height=0.5in]{SPHEREx_logo.png}}
+\lhead{\includegraphics[height=0.5in]{logo.pdf}}
 \chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
 \rhead{\@spherexHandle \vspace{10pt}\\Version \@version, \@docDate}
 \footskip = 8.4pt
@@ -211,7 +217,8 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexPipeLevel}{
-            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{} \iftoggle{SpherexDifficulty}{\hspace{0.5in}Difficulty: \@difficulty}{}}
+            {\LARGE\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{}}
+            {\LARGE\noindent\bf \iftoggle{SpherexDifficulty}{\vskip 0.25in Difficulty: \@difficulty}{}}
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
@@ -248,8 +255,16 @@
 \bibliographystyle{aasjournal}
 
 %% Macros
+
+%% Metadata access macros
 \newcommand{\spherex}{SPHEREx}
 \newcommand{\ipac}{IPAC}
+\newcommand{\thediagramindex}{undefined}
+\newcommand{\thedifficulty}{undefined}
+\newcommand{\thehandle}{undefined}
+\newcommand{\themodulename}{undefined}
+\newcommand{\thepipelevel}{undefined}
+\newcommand{\theversion}{undefined}
 
 %% Journal macros (adapted from aastex)
 \let\jnl@style=\rmfamily 
