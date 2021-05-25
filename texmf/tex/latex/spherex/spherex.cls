@@ -194,11 +194,10 @@
   \renewcommand{\thehandle}{\spherexHandleHelper#1\relax}
 }
 %% Formats bare '-' characters in the handle as en-dashes with a bit of extra space
-\newcommand{\spherexHandleHelper}[1]{
-  \ifx\relax#1\else
-    \ifx-#1\kern0.08em --\kern0.08em\else#1\fi
-    \expandafter\spherexHandleHelper\fi
-}
+\newcommand{\spherexHandleHelper}[1]
+  {\ifx\relax#1\else
+    \ifx-#1\kern0.08em--\kern0.08em{}\else#1\fi
+    \expandafter\spherexHandleHelper\fi}
 
 %% Headers
 \pagestyle{fancy}
