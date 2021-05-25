@@ -20,49 +20,53 @@
 
 %% Class Options
 \newtoggle{SpherexChangeControlled}
+\newcommand{\@docSubsystem}{SSDC}%% default, for now
 \newcommand{\@docCategoryCode}{null}
 \newcommand{\@docCategoryName}{null}
+\DeclareOption{SSDC}{
+    \renewcommand{\@docSubsystem}{SSDC}
+}
 \DeclareOption{RQ}{
     \renewcommand{\@docCategoryCode}{RQ}
-    \renewcommand{\@docCategoryName}{Requirements}
+    \renewcommand{\@docCategoryName}{Requirements Document}
     \toggletrue{SpherexChangeControlled}
 }
 \DeclareOption{PM}{
     \renewcommand{\@docCategoryCode}{PM}
-    \renewcommand{\@docCategoryName}{Project Management}
+    \renewcommand{\@docCategoryName}{Project Management Document}
     \toggletrue{SpherexChangeControlled}
 }
 \DeclareOption{MS}{
     \renewcommand{\@docCategoryCode}{MS}
-    \renewcommand{\@docCategoryName}{Module Specification}
+    \renewcommand{\@docCategoryName}{Pipeline Module Specification}
     \toggletrue{SpherexChangeControlled}
 }
 \DeclareOption{DP}{
     \renewcommand{\@docCategoryCode}{DP}
-    \renewcommand{\@docCategoryName}{Data Products}
+    \renewcommand{\@docCategoryName}{Data Product Specification}
 }
 \DeclareOption{TN}{
     \renewcommand{\@docCategoryCode}{TN}
-    \renewcommand{\@docCategoryName}{Technical Notes}
+    \renewcommand{\@docCategoryName}{Technical Note}
 }
 \DeclareOption{IF}{
     \renewcommand{\@docCategoryCode}{IF}
-    \renewcommand{\@docCategoryName}{Interface}
+    \renewcommand{\@docCategoryName}{Interface Specification}
     \toggletrue{SpherexChangeControlled}
 }
 \DeclareOption{TR}{
     \renewcommand{\@docCategoryCode}{TR}
-    \renewcommand{\@docCategoryName}{Test/Technical Reports}
+    \renewcommand{\@docCategoryName}{Test/Technical Report}
     \toggletrue{SpherexChangeControlled}
 }
 \DeclareOption{RV}{
     \renewcommand{\@docCategoryCode}{RV}
-    \renewcommand{\@docCategoryName}{Review Materials}
+    \renewcommand{\@docCategoryName}{Review Material}
     \toggletrue{SpherexChangeControlled}
 }
 \DeclareOption{OP}{
     \renewcommand{\@docCategoryCode}{OP}
-    \renewcommand{\@docCategoryName}{Operations Procedures}
+    \renewcommand{\@docCategoryName}{Operations Procedure}
     \toggletrue{SpherexChangeControlled}
 }
 % Pass additional options to the "base" class
@@ -186,8 +190,14 @@
 %% \spherexHandle
 \newcommand{\@spherexHandle}{}
 \newcommand{\spherexHandle}[1]{
-  \renewcommand{\@spherexHandle}{#1}
-  \renewcommand{\thehandle}{#1}
+  \renewcommand{\@spherexHandle}{\spherexHandleHelper#1\relax}
+  \renewcommand{\thehandle}{\spherexHandleHelper#1\relax}
+}
+%% Formats bare '-' characters in the handle as en-dashes with a bit of extra space
+\newcommand{\spherexHandleHelper}[1]{
+  \ifx\relax#1\else
+    \ifx-#1\kern0.08em --\kern0.08em\else#1\fi
+    \expandafter\spherexHandleHelper\fi
 }
 
 %% Headers
@@ -197,7 +207,7 @@
 \topmargin = -0.5in
 \headwidth = 6.5in
 \lhead{\includegraphics[height=0.5in]{logo.pdf}}
-\chead{\large\ \@docCategoryName \vspace{10pt}\\\@docShortTitle}
+\chead{\large\ \@docSubsystem\ \@docCategoryName \vspace{8pt}\\\@docShortTitle}
 \rhead{\@spherexHandle \vspace{10pt}\\Version \@version, \@docDate}
 \footskip = 8.4pt
 \cfoot{Page \thepage\ of \pageref{LastPage}}
