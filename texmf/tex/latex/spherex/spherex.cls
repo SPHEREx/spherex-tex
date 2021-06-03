@@ -1,7 +1,7 @@
 %% SPHEREx document class
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spherex}[2021/05/17 SPHEREx document class]
+\ProvidesClass{spherex}[2021/06/03 SPHEREx document class]
 
 %% Base class
 \LoadClass[10pt,letterpaper]{article}
@@ -208,8 +208,12 @@
 \lhead{\includegraphics[height=0.5in]{logo.pdf}}
 \chead{\large\ \@docSubsystem\ \@docCategoryName \vspace{8pt}\\\@docShortTitle}
 \rhead{\@spherexHandle \vspace{10pt}\\Version \@version, \@docDate}
+
+%% Footers
 \footskip = 8.4pt
-\cfoot{Page \thepage\ of \pageref{LastPage}}
+\lfoot{Caltech/IPAC}
+\cfoot{SPHEREx Project Document}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
 
 %% Page layout
 \RequirePackage[margin=1in]{geometry}
@@ -231,18 +235,18 @@
             \vskip 0.25in
         }{}
         \iftoggle{SpherexIpacLead}{
-            {\noindent\bf \ipac\ Lead: \@ipacleadname\ifdefempty{\@ipacleademail}{}{~\href{mailto:\@ipacleademail}{\@ipacleademail}} }
+            {\noindent\bf \ipac\ Lead Author: \@ipacleadname\ifdefempty{\@ipacleademail}{}{~\href{mailto:\@ipacleademail}{\@ipacleademail}} }
             \vskip 0.125in
         }{}
         \iftoggle{SpherexSpherexLead}{
-            {\noindent\bf \spherex\ Lead: \@spherexleadname\ifdefempty{\@spherexleademail}{}{~\href{mailto:\@spherexleademail}{\@spherexleademail}} }
+            {\noindent\bf \spherex\ POC: \@spherexleadname\ifdefempty{\@spherexleademail}{}{~\href{mailto:\@spherexleademail}{\@spherexleademail}} }
             \vskip 0.125in
         }{}
     \end{center}
 
     \ifdefempty{\@author}{}{
       \iftoggle{SpherexSpherexLead}{
-        \iftoggle{SpherexIpacLead}{{\noindent\bf Other Authors:}\\ }{}
+        \iftoggle{SpherexIpacLead}{{\noindent\bf In collaboration with:}\\ }{}
       }{{\noindent\bf Authors:}\\}
       \@author\\
     }
