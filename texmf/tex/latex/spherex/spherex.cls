@@ -1,7 +1,7 @@
 %% SPHEREx document class
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spherex}[2021/06/03 SPHEREx document class]
+\ProvidesClass{spherex}[2021/12/27 SPHEREx document class]
 
 %% Base class
 \LoadClass[10pt,letterpaper]{article}
@@ -14,6 +14,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage{natbib}
+\RequirePackage{longtable}
 %% Load amsmath packages before loading fonts
 \RequirePackage{amsmath}
 \RequirePackage{amstext}
@@ -264,6 +265,39 @@
     \newpage
 } % end \renewcommand{\maketitle}
 
+%% Document history
+\newenvironment{dochistory}[0]{
+  \newpage
+  \section*{Change Record}
+  \begin{small}
+    % flush table to the left
+    % \setlength\LTleft{0pt}
+    % \setlength\LTright{\fill}
+%   \setlength\LTpost{\fill}
+   \addtocounter{table}{-1}  % fixme
+    \begin{longtable}{|l|p{0.13\textwidth}|p{0.45\textwidth}|p{0.23\textwidth}|}
+    % \begin{longtable}{|l|p|p|p|}
+
+    \hline
+\textbf{Version} & \textbf{Date} & \textbf{Description} & \textbf{Owner} \\ \hline\hline
+    \endfirsthead
+    \hline
+\textbf{Version} & \textbf{Date} & \textbf{Description} & \textbf{Owner} \\ \hline\hline
+    \endhead
+    \multicolumn{4}{r}{\emph{Continued on next page}}
+    \endfoot
+    \endlastfoot
+}{
+\end{longtable}
+\end{small}
+
+\clearpage
+}
+
+%% \addtohist command adds a version line in the \dochistory environment
+%% argument format is version, date, description, owner
+\providecommand{\addtohist}[4]{#1 & #2 & #3 & #4 \\\hline}
+
 %% Bibliography
 \bibliographystyle{aasjournal}
 
@@ -278,6 +312,8 @@
 \newcommand{\themodulename}{undefined}
 \newcommand{\thepipelevel}{undefined}
 \newcommand{\theversion}{undefined}
+
+%% Version table
 
 %% Journal macros (adapted from aastex)
 \let\jnl@style=\rmfamily 
