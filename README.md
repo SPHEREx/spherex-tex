@@ -6,10 +6,10 @@ Contents:
 
 - [How to compile a document with Docker](#how-to-compile-a-document-with-docker)
 - [spherex class reference](#spherex-class-reference)
-   - [spherex document class and options](#spherex-documentclass-and-options)
-   - [Preamble commands](#preamble-commands)
-   - [Title page](#title-page)
-   - [Macros](#macros)
+  - [spherex document class and options](#spherex-documentclass-and-options)
+  - [Preamble commands](#preamble-commands)
+  - [Title page](#title-page)
+  - [Macros](#macros)
 - [BibTeX bibliography](#bibtex-bibliography)
 
 ## How to compile a document with Docker
@@ -109,6 +109,14 @@ This command specifies the document's IPAC lead author:
 
 ```tex
 \ipaclead[email=galileo@example.com]{Galileo Galilei}
+```
+
+#### \interfacepartner
+
+This command specifies the document's interface partner (for SSDC-IF documents):
+
+```tex
+\interfacepartner{ABC}
 ```
 
 #### \author and \person

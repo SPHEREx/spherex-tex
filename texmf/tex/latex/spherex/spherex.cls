@@ -180,6 +180,13 @@
     \newcommand{\@spherexleadname}{#2}
 }
 
+%% \interfacepartner (sets @interfacepartnername and SpherexInterfacePartner toggle)
+\newtoggle{SpherexInterfacePartner}
+\newcommand{\interfacepartner}[1]{
+    \toggletrue{SpherexInterfacePartner}
+    \newcommand{\@interfacepartnername}{#1}
+}
+
 %% \approved (sets @approvername, @approvaldate and SpherexApproved toggle)
 \newtoggle{SpherexApproved}
 \newcommand{\approved}[2]{
@@ -241,6 +248,10 @@
         }{}
         \iftoggle{SpherexSpherexLead}{
             {\noindent\bf \spherex\ POC: \@spherexleadname\ifdefempty{\@spherexleademail}{}{~\href{mailto:\@spherexleademail}{\@spherexleademail}} }
+            \vskip 0.125in
+        }{}
+        \iftoggle{SpherexInterfacePartner}{
+            {\noindent\bf Interface Partner: \@interfacepartnername }
             \vskip 0.125in
         }{}
     \end{center}
