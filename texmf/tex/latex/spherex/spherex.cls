@@ -180,6 +180,36 @@
     \newcommand{\@spherexleadname}{#2}
 }
 
+%% \interfacepartner (sets @interfacepartnername and SpherexInterfacePartner toggle)
+\newtoggle{SpherexInterfacePartner}
+\newcommand{\interfacepartner}[1]{
+    \toggletrue{SpherexInterfacePartner}
+    \newcommand{\@interfacepartnername}{#1}
+}
+
+%% \VADoorsID
+\newtoggle{VADoorsID}
+\newcommand{\VADoorsID}[2][]{
+    \toggletrue{VADoorsID}
+    \newcommand{\@VADoorsID}{#2}
+    \newcommand{\@VADoorsIDURL}{#1}
+}
+
+%% \ReqDoorsID
+\newtoggle{ReqDoorsID}
+\newcommand{\ReqDoorsID}[2][]{
+    \toggletrue{ReqDoorsID}
+    \newcommand{\@ReqDoorsID}{#2}
+    \newcommand{\@ReqDoorsIDURL}{#1}
+}
+
+%% \IPACJiraID
+\newtoggle{IPACJiraID}
+\newcommand{\IPACJiraID}[1]{
+    \toggletrue{IPACJiraID}
+    \newcommand{\@IPACJiraID}{#1}
+}
+
 %% \approved (sets @approvername, @approvaldate and SpherexApproved toggle)
 \newtoggle{SpherexApproved}
 \newcommand{\approved}[2]{
@@ -226,6 +256,18 @@
         \vskip 0.25in
         {\Huge\bf\@title}
         \vskip 0.25in
+        \iftoggle{VADoorsID}{
+            {\LARGE\noindent\bf SPHEREx Verification Activity \ifdefempty{\@VADoorsIDURL}{\@VADoorsID}{\href{\@VADoorsIDURL}{\@VADoorsID}}}
+            \vskip 0.125in
+        }{}
+        \iftoggle{ReqDoorsID}{
+            {\LARGE\noindent\bf SPHEREx Requirement \ifdefempty{\@ReqDoorsIDURL}{\@ReqDoorsID}{\href{\@ReqDoorsIDURL}{\@ReqDoorsID}}}
+            \vskip 0.125in
+        }{}
+        \iftoggle{IPACJiraID}{
+            {\LARGE\noindent\bf \href{https://jira.ipac.caltech.edu/browse/\@IPACJiraID}{\@IPACJiraID}}
+            \vskip 0.125in
+        }{}
         \iftoggle{SpherexVersion}{
             {\LARGE\bf Version: \@version}
             \vskip 0.25in
@@ -241,6 +283,10 @@
         }{}
         \iftoggle{SpherexSpherexLead}{
             {\noindent\bf \spherex\ POC: \@spherexleadname\ifdefempty{\@spherexleademail}{}{~\href{mailto:\@spherexleademail}{\@spherexleademail}} }
+            \vskip 0.125in
+        }{}
+        \iftoggle{SpherexInterfacePartner}{
+            {\noindent\bf Interface Partner: \@interfacepartnername }
             \vskip 0.125in
         }{}
     \end{center}

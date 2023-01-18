@@ -6,10 +6,10 @@ Contents:
 
 - [How to compile a document with Docker](#how-to-compile-a-document-with-docker)
 - [spherex class reference](#spherex-class-reference)
-   - [spherex document class and options](#spherex-documentclass-and-options)
-   - [Preamble commands](#preamble-commands)
-   - [Title page](#title-page)
-   - [Macros](#macros)
+  - [spherex document class and options](#spherex-documentclass-and-options)
+  - [Preamble commands](#preamble-commands)
+  - [Title page](#title-page)
+  - [Macros](#macros)
 - [BibTeX bibliography](#bibtex-bibliography)
 
 ## How to compile a document with Docker
@@ -111,6 +111,14 @@ This command specifies the document's IPAC lead author:
 \ipaclead[email=galileo@example.com]{Galileo Galilei}
 ```
 
+#### \interfacepartner
+
+This command specifies the document's interface partner (for SSDC-IF documents):
+
+```tex
+\interfacepartner{ABC}
+```
+
 #### \author and \person
 
 Aside from the lead authors (`\ipaclead` and `\spherexlead`), authors are specified with the `\author` command. Each author is on a separate line (using `\\`) and marked-up with a `\person` command:
@@ -180,6 +188,33 @@ For module specification (`MS`) documents, this command sets the "difficulty" me
 ```
 
 See also: [`\thedifficulty`](#thedifficulty) macro.
+
+#### \VADoorsID
+
+The verification activity DOORS ID, with the URL as an optional argument.
+For SSDC-TR documents.
+
+```tex
+\VADoorsID[https://...]{12345}
+```
+
+#### \ReqDoorsID
+
+The requirement DOORS ID, with the URL as an optional argument.
+For SSDC-TR documents.
+
+```tex
+\ReqDoorsID[https://...]{12345}
+```
+
+#### \IPACJiraID
+
+An IPAC Jira issue ID.
+For SSDC-TR documents, can be set in conjunction with `\VADoorsID` or `\ReqDoorsID`.
+
+```tex
+\IPACJiraID{SVV-999}
+```
 
 ### Title page
 
