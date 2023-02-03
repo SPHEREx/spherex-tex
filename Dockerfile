@@ -36,6 +36,9 @@ FROM base AS runtime
 # Create a directory for the spherex-tex installation
 RUN mkdir spherex-tex
 
+# Disable git safe directory checks
+RUN git config --global --add safe.directory '*'
+
 # Point $TEXMFHOME to the container's texmf. This environment variable
 # exists for container runs by a user.
 ENV TEXMFHOME "/spherex-tex/texmf"
