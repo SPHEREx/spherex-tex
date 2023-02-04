@@ -335,6 +335,9 @@
     \endlastfoot
 }{
 \end{longtable}
+
+(Document generated on \today\ from commit \vcsRevision\ of \vcsDate.)
+
 \end{small}
 
 \clearpage
