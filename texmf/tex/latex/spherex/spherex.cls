@@ -311,6 +311,50 @@
     \newpage
 } % end \renewcommand{\maketitle}
 
+
+%% Compact Title for one-page documents
+\newcommand{\maketitlecompact}{
+    \begin{center}
+%        {\LARGE\@spherexHandle}
+%        \vskip 0.25in
+        {\large\bf\@title}
+        \vskip 0.25in
+        \iftoggle{SpherexPipeLevel}{
+            {\large\noindent\bf Pipeline Level: \@pipelevel \iftoggle{SpherexDiagramIndex}{\hspace{0.5in}Diagram Index: \@diagramindex}{}}
+            {\large\noindent\bf \iftoggle{SpherexDifficulty}{\vskip 0.25in Difficulty: \@difficulty}{}}
+            \vskip 0.25in
+        }{}
+        \iftoggle{SpherexInterfacePartner}{
+            {\noindent\bf Interface Partner: \@interfacepartnername }
+            \vskip 0.125in
+        }{}
+    \end{center}
+
+    \iftoggle{SpherexIpacLead}{
+      {\noindent\bf \ipac\ Lead Author: \@ipacleadname\ifdefempty{\@ipacleademail}{}{~\href{mailto:\@ipacleademail}{\@ipacleademail} \hspace{1.0in} Date: \@docDate } }
+      \vskip 0.125in
+    }{}
+    \iftoggle{SpherexSpherexLead}{
+      {\noindent\bf \spherex\ POC: \@spherexleadname\ifdefempty{\@spherexleademail}{}{~\href{mailto:\@spherexleademail}{\@spherexleademail}} }
+      \vskip 0.125in
+    }{}
+
+    \ifdefempty{\@author}{}{
+      \iftoggle{SpherexSpherexLead}{
+        \iftoggle{SpherexIpacLead}{{\noindent\bf In collaboration with:}\\ }{}
+      }{{\noindent\bf Authors:}\\}
+      \@author\\
+    }
+
+    \iftoggle{SpherexApproved}{
+        {\noindent\bf Approved By: \@approvername\ (Date: \@approvaldate)}\\
+        \vskip 0.125in
+    }{}
+
+    % no table of contents, no new page
+
+} % end \newcommand{\maketitlecompact}
+
 %% Document history
 \newenvironment{dochistory}[0]{
   \newpage
