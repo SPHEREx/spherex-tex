@@ -3,32 +3,46 @@
 \input{meta}
 
 \spherexHandle{SSDC-TR-000}
-\title{Requirements Title}
+\title{Level 0 Data Ingest}
+\shortTitle{Requirement 1007268 Closure Memo}
 \version{1.0}
 \docDate{2021-01-01} % override the vcs date
-\ReqDoorsID[https://example.org/12345]{12345}
+\ReqDoorsID[https://example.org/1007268]{1007268}
 \IPACJiraID{SVV-999}
 
-\spherexlead[email=galileo@example.com]{Galileo Galilei}
+\ipaclead[email=galileo@example.com]{Galileo Galilei}
 
 \approved{2021-01-01}{Edwin Hubble}
 
 \begin{document}
 \maketitlecompact
 
-\begin{dochistory}
-\addtohist{0.1}{2020-01-01}{Initial draft.}{Galileo Galilei}
-\addtohist{1.0}{2021-01-01}{Initial accepted version.}{Galileo Galilei}
-\end{dochistory}
+% \begin{dochistory}
+% \addtohist{0.1}{2020-01-01}{Initial draft.}{Galileo Galilei}
+% \addtohist{1.0}{2021-01-01}{Initial accepted version.}{Galileo Galilei}
+% \end{dochistory}
 
-\section{Introduction}
+\subsection*{Requirement}
 
-Lorem ipsum. \cite{SPHEREx_SPIE}
+\begin{longtable}{|l|p{0.8\textwidth}|}
+\hline
+\textbf{DNG ID} & \textbf{Requirement} \\
+\endhead
+\hline
+\href{https://cae-tracetree-spherex.jpl.nasa.gov/vi1007268.html}{1007268} &
+REQ: L4\_SOS\_SSDC -- Level 0 Data Ingest (IPAC JIRA: \href{https://jira.ipac.caltech.edu/browse/SVV-999}{SVV-999}) \\
+ & The SSDC shall ingest, catalog, and make available for processing all Level 0 science data products obtained from the spacecraft. \\
+\hline
+\end{longtable}
+
+\subsection*{V\&V Closure Summary}
+
+Lorem ipsum. % \cite{SPHEREx_SPIE}
 
 Version: \theversion
 
 Handle: \thehandle
 
-\bibliography{spherex}
+% \bibliography{spherex}
 
 \end{document}
