@@ -301,8 +301,8 @@
     \vskip 0.25in
 
     \iftoggle{SpherexApproved}{
-        {\LARGE\noindent\bf Approved By: \@approvername \\ \\}
-        {\LARGE\noindent\bf Date: \@approvaldate}\\
+        {\Large\noindent\bf Approved By: \@approvername \\ \\}
+        {\Large\noindent\bf Date: \@approvaldate}\\
         \vskip 0.25in
     }{}
 
