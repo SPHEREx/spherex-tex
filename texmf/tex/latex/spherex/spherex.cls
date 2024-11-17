@@ -331,7 +331,7 @@
     \end{center}
 
     \iftoggle{SpherexIpacLead}{
-      {\noindent\bf \ipac\ Lead Author: \@ipacleadname\ifdefempty{\@ipacleademail}{}{~\href{mailto:\@ipacleademail}{\@ipacleademail} \hspace{1.0in} Date: \@docDate } }
+      {\noindent\bf \ipac\ Lead: \@ipacleadname\ifdefempty{\@ipacleademail}{}{~\href{mailto:\@ipacleademail}{\@ipacleademail} \hspace{1.0in} Date: \@docDate } }
       \vskip 0.125in
     }{}
     \iftoggle{SpherexSpherexLead}{
