@@ -39,42 +39,42 @@ jobs:
         run: |
           docker run --rm -v `pwd`:/workspace -w /workspace localhost:5000/spherex/spherex-tex:latest sh -c 'cd test && ./test.sh'
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: SSDC-MS-000.pdf
           path: test/pipeline_module/SSDC-MS-000.pdf
           retention-days: 7
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: SSDC-MS-000.unapproved.pdf
           path: test/pipeline_module_unapproved/SSDC-MS-000.pdf
           retention-days: 7
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: SSDC-TN-000.pdf
           path: test/technote/SSDC-TN-000.pdf
           retention-days: 7
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: SSDC-IF-000.pdf
           path: test/ssdc-if/SSDC-IF-000.pdf
           retention-days: 7
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: SSDC-TR-000-va.pdf
           path: test/ssdc-tr-va/SSDC-TR-000.pdf
           retention-days: 7
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: SSDC-TR-000-req.pdf
           path: test/ssdc-tr-req/SSDC-TR-000.pdf
